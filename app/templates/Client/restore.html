@@ -1,0 +1,395 @@
+{% extends "Client/baseTemplate.html" %}
+
+
+{% block newcontent %}
+
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-warning card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">weekend</i>
+                    </div>
+                    <p class="card-category">Total pdf Documents</p>
+                    <h4 class="card-title">{{ Pdflen }}</h4>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-rose card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">equalizer</i>
+                    </div>
+                    <p class="card-category">Total Rar Files</p>
+                    <h4 class="card-title">{{ rarLen }}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-success card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">store</i>
+                    </div>
+                    <p class="card-category">Total Text Files</p>
+                    <h4 class="card-title">{{ txtLen }}</h4>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                    <div class="card-icon">
+                        <i class="fa fa-twitter"></i>
+                    </div>
+                    <p class="card-category">Total Pictures</p>
+                    <h4 class="card-title">{{ imagesLen }}</h4>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        {% if listFolders %}
+            {% for obj in listFolders %}
+
+                <div class="col-md-3">
+                    <div class="card card-product">
+                        <div class="card-header card-header-image" data-header-animation="true">
+                            <a href="#pablo">
+                                <img class="img" src="../../static/assets/img/folder-icon.png">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-actions text-center">
+                                <button type="button" class="btn btn-default btn-link" rel="tooltip"
+                                        data-placement="bottom"
+                                        title="Share">
+                                    <a class="material-icons" href="/sharefile/{{ obj[0] }}">share</a>
+                                </button>
+                                <button type="button" class="btn btn-success btn-link" rel="tooltip"
+                                        data-placement="bottom"
+                                        title="Download">
+                                    <a class="material-icons" href="/download/{{ obj[0] }}">download</a>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-link" rel="tooltip"
+                                        data-placement="bottom"
+                                        title="Delete">
+                                    <a class="material-icons" href="/delete/{{ obj[0] }}">close</a>
+                                </button>
+                            </div>
+                            <h6 class="card-title">
+                                <a href="#pablo">{{ obj [0] }}</a>
+                            </h6>
+
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">
+                                <h6>{{ obj[1] }}</h6>
+                            </div>
+                            <div class="stats">
+                                <p class="card-category"><i class="material-icons">place</i> {{ obj[2] }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+        {% endif %}
+
+        {% if listTxt %}
+            {% for obj in listTxt %}
+
+                <div class="col-md-3">
+                    <div class="card card-product">
+                        <div class="card-header card-header-image" data-header-animation="true">
+                            <a href="#pablo">
+                                <img class="img" src="../../static/assets/img/text-icon.png">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-actions text-center">
+
+                                <button type="button" class="btn btn-default btn-link" rel="tooltip"
+                                        data-placement="bottom"
+                                        title="Share">
+                                    <a class="material-icons" href="/sharefile/{{ obj[0] }}">share</a>
+                                </button>
+                                <button type="button" class="btn btn-success btn-link" rel="tooltip"
+                                        data-placement="bottom"
+                                        title="Download">
+                                    <a class="material-icons" href="/download/{{ obj[0] }}">download</a>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-link" rel="tooltip"
+                                        data-placement="bottom"
+                                        title="Remove">
+                                   <a class="material-icons" href="/delete/{{ obj[0] }}">close</a>
+                                </button>
+                            </div>
+                            <h6 class="card-title">
+                                <a href="#pablo">{{ obj [0] }}</a>
+                            </h6>
+
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">
+                                <h6>{{ obj[1] }}</h6>
+                            </div>
+                            <div class="stats">
+                                <p class="card-category"><i class="material-icons">place</i> {{ obj[2] }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+        {% endif %}
+
+        {% if listDocx %}
+            {% for obj in listDocx %}
+
+                <div class="col-md-3">
+                    <div class="card card-product">
+                        <div class="card-header card-header-image" data-header-animation="true">
+                            <a href="#pablo">
+                                <img class="img" src="../../static/assets/img/docx-icon.png">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-actions text-center">
+
+                                <button type="button" class="btn btn-default btn-link" rel="tooltip"
+                                        data-placement="bottom"
+                                        title="Share">
+                                    <a class="material-icons" href="/sharefile/{{ obj[0] }}">share</a>
+                                </button>
+                                <button type="button" class="btn btn-success btn-link" rel="tooltip"
+                                        data-placement="bottom"
+                                        title="Download">
+                                    <a class="material-icons" href="/download/{{ obj[0] }}">download</a>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-link" rel="tooltip"
+                                        data-placement="bottom"
+                                        title="Delete">
+                                    <a class="material-icons" href="/delete/{{ obj[0] }}">close</a>
+                                </button>
+                            </div>
+                            <h6 class="card-title">
+                                <a href="#pablo">{{ obj [0] }}</a>
+                            </h6>
+
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">
+                                <h6>{{ obj[1] }}</h6>
+                            </div>
+                            <div class="stats">
+                                <p class="card-category"><i class="material-icons">place</i> {{ obj[2] }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+        {% endif %}
+
+        {% if listJpeg %}
+            {% for obj in listJpeg %}
+
+                <div class="col-md-3">
+                    <div class="card card-product">
+                        <div class="card-header card-header-image" data-header-animation="true">
+                            <a href="#pablo">
+                                <img class="img" src="../../static/assets/img/image-icon.png">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-actions text-center">
+                                <button type="button" class="btn btn-default btn-link" rel="tooltip"
+                                        data-placement="bottom"
+                                        title="Share">
+                                    <a class="material-icons" href="/sharefile/{{ obj[0] }}">share</a>
+                                </button>
+                                <button type="button" class="btn btn-success btn-link" rel="tooltip"
+                                        data-placement="bottom"
+                                        title="Download">
+                                        <a class="material-icons" href="/download/{{ obj[0] }}">download</a>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-link" rel="tooltip"
+                                        data-placement="bottom"
+                                        title="Delete">
+                                    <a class="material-icons" href="/delete/{{ obj[0] }}">close</a>
+                                </button>
+                            </div>
+                            <h6 class="card-title">
+                                <a href="#pablo">{{ obj [0] }}</a>
+                            </h6>
+
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">
+                                <h6>{{ obj[1] }}</h6>
+                            </div>
+                            <div class="stats">
+                                <p class="card-category"><i class="material-icons">place</i> {{ obj[2] }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+        {% endif %}
+
+        {% if listOthers %}
+            {% for obj in listOthers %}
+
+                <div class="col-md-3">
+                    <div class="card card-product">
+                        <div class="card-header card-header-image" data-header-animation="true">
+                            <a href="#pablo">
+                                <img class="img" src="../../static/assets/img/others-icon.png">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-actions text-center">
+                                <button type="button" class="btn btn-default btn-link" rel="tooltip"
+                                        data-placement="bottom"
+                                        title="Share">
+                                    <a class="material-icons" href="/sharefile/{{ obj[0] }}">share</a>
+                                </button>
+                                <button type="button" class="btn btn-success btn-link" rel="tooltip"
+                                        data-placement="bottom"
+                                        title="Download">
+                                    <a class="material-icons" href="/download/{{ obj[0] }}">download</a>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-link" rel="tooltip"
+                                        data-placement="bottom"
+                                        title="Delete">
+                                   <a class="material-icons" href="/delete/{{ obj[0] }}">close</a>
+                                </button>
+                            </div>
+                            <h6 class="card-title">
+                                <a href="#pablo">{{ obj [0] }}</a>
+                            </h6>
+
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">
+                                <h6>{{ obj[1] }}</h6>
+                            </div>
+                            <div class="stats">
+                                <p class="card-category"><i class="material-icons">place</i> {{ obj[2] }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+        {% endif %}
+
+        {% if listRar %}
+            {% for obj in listRar %}
+
+                <div class="col-md-3">
+                    <div class="card card-product">
+                        <div class="card-header card-header-image" data-header-animation="true">
+                            <a href="#pablo">
+                                <img class="img" src="../../static/assets/img/rar-icon.png">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-actions text-center">
+
+                                <button type="button" class="btn btn-default btn-link" rel="tooltip"
+                                        data-placement="bottom"
+                                        title="Share">
+                                    <a class="material-icons" href="/sharefile/{{ obj[0] }}">share</a>
+                                </button>
+                                <button type="button" class="btn btn-success btn-link" rel="tooltip"
+                                        data-placement="bottom"
+                                        title="Download">
+                                    <a class="material-icons" href="/download/{{ obj[0] }}">download</a>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-link" rel="tooltip"
+                                        data-placement="bottom"
+                                        title="Delete">
+                                    <a class="material-icons" href="/delete/{{ obj[0] }}">close</a>
+                                </button>
+                            </div>
+                            <h6 class="card-title">
+                                <a href="#pablo">{{ obj [0] }}</a>
+                            </h6>
+
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">
+                                <h6>{{ obj[1] }}</h6>
+                            </div>
+                            <div class="stats">
+                                <p class="card-category"><i class="material-icons">place</i> {{ obj[2] }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+        {% endif %}
+
+    {% if listPdf %}
+            {% for obj in listPdf %}
+
+                <div class="col-md-3">
+                    <div class="card card-product">
+                        <div class="card-header card-header-image" data-header-animation="true">
+                            <a href="#pablo">
+                                <img class="img" src="../../static/assets/img/pdf_icon.png">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-actions text-center">
+
+                                <button type="button" class="btn btn-default btn-link" rel="tooltip"
+                                        data-placement="bottom"
+                                        title="Share">
+                                    <a class="material-icons" href="/sharefile/{{ obj[0] }}">share</a>
+                                </button>
+                                <button type="button" class="btn btn-success btn-link" rel="tooltip"
+                                        data-placement="bottom"
+                                        title="Download">
+                                    <a class="material-icons" href="/download/{{ obj[0] }}">download</a>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-link" rel="tooltip"
+                                        data-placement="bottom"
+                                        title="Delete">
+                                    <a class="material-icons" href="/delete/{{ obj[0] }}">close</a>
+                                </button>
+                            </div>
+                            <h6 class="card-title">
+                                <a href="#pablo">{{ obj [0] }}</a>
+                            </h6>
+
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">
+                                <h6>{{ obj[1] }}</h6>
+                            </div>
+                            <div class="stats">
+                                <p class="card-category"><i class="material-icons">place</i> {{ obj[2] }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+        {% endif %}
+
+    </div>
+
+
+{% endblock %}
+
+

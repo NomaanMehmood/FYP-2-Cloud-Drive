@@ -1,0 +1,52 @@
+{% extends "Admin/adminBaseTemplate.html" %}
+
+{% block newcontent %}
+
+ <div class="row">
+        <div class="col-md-12 mt-4">
+             <div class="card">
+                <div class="card-header card-header-icon card-header-rose">
+                    <div class="card-icon"><i class="material-icons">assignment</i></div>
+                    <h4 class="card-title">Cloud Drive Users</h4></div>
+
+    <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="text-primary">
+                            <tr>
+                                <th>Full Name</th>
+                                <th>Email</th>
+                                <th>Country</th>
+                                <th>Address</th>
+                                <th>Cloud Region</th>
+                            </tr>
+                            </thead>
+                        \
+                            <tbody>
+                            {% for user in users %}
+                            <tr>
+                                <td>{{ user.fullname}}</td>
+                                <td>{{ user.email}}</td>
+                                <td>{{ user.country }}</td>
+                                <td>{{ user.address}}</td>
+                                <td>{{ user.region}}</td>
+
+                            </tr>
+                            {% endfor %}
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+ </div>
+
+
+
+
+
+{% endblock %}
+
+

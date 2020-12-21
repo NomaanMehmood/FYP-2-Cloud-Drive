@@ -1,0 +1,162 @@
+{% extends "Client/baseTemplate.html" %}
+
+
+{% block newcontent %}
+
+<div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header card-header-icon card-header-rose">
+                  <div class="card-icon">
+                    <i class="material-icons">perm_identity</i>
+                  </div>
+                  <h4 class="card-title">Edit Profile -
+                    <small class="category">Complete your profile</small>
+                  </h4>
+                </div>
+                <div class="card-body">
+                  <form method="POST" action="">
+                      {{ form.hidden_tag() }}
+                      {{ flash }}
+                    <div class="row">
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          {{ form.username.label(class="bmd-label-floating") }}
+                          <div class="form-group">
+                            {% if form.username.errors %}
+                                {{ form.username(class="form-control form-control-lg is-invalid") }}
+                                      <div class="invalid-feedback">
+                                        {% for error in form.username.errors %}
+                                          <span>{{ error }}</span>
+                                        {% endfor %}
+                                      </div>
+                            {% else %}
+                                  {{ form.username(class="form-control form-control-lg") }}
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          {{ form.fullname.label(class="bmd-label-floating") }}
+                          <div class="form-group">
+                            {% if form.fullname.errors %}
+                                {{ form.fullname(class="form-control form-control-lg is-invalid") }}
+                                      <div class="invalid-feedback">
+                                        {% for error in form.fullname.errors %}
+                                          <span>{{ error }}</span>
+                                        {% endfor %}
+                                      </div>
+                            {% else %}
+                                  {{ form.fullname(class="form-control form-control-lg") }}
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                       <div class="col-md-4">
+                        <div class="form-group">
+                          {{ form.email.label(class="bmd-label-floating") }}
+                          <div class="form-group">
+                            {% if form.email.errors %}
+                                {{ form.email(class="form-control form-control-lg is-invalid") }}
+                                      <div class="invalid-feedback">
+                                        {% for error in form.email.errors %}
+                                          <span>{{ error }}</span>
+                                        {% endfor %}
+                                      </div>
+                            {% else %}
+                                  {{ form.email(class="form-control form-control-lg") }}
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                      <div class="form-group">
+                          {{ form.country.label(class="bmd-label-floating") }}
+                          <div class="form-group">
+                            {% if form.country.errors %}
+                                {{ form.country(class="form-control form-control-lg is-invalid") }}
+                                      <div class="invalid-feedback">
+                                        {% for error in form.country.errors %}
+                                          <span>{{ error }}</span>
+                                        {% endfor %}
+                                      </div>
+                            {% else %}
+                                  {{ form.country(class="form-control form-control-lg") }}
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          {{ form.region.label(class="bmd-label-floating") }}
+                          <div class="form-group">
+                            {% if form.region.errors %}
+                                {{ form.region(class="form-control form-control-lg is-invalid") }}
+                                      <div class="invalid-feedback">
+                                        {% for error in form.region.errors %}
+                                          <span>{{ error }}</span>
+                                        {% endfor %}
+                                      </div>
+                            {% else %}
+                                  {{ form.region(class="form-control form-control-lg") }}
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          {{ form.address.label(class="bmd-label-floating") }}
+                          <div class="form-group">
+                            {% if form.address.errors %}
+                                {{ form.address(class="form-control form-control-lg is-invalid") }}
+                                      <div class="invalid-feedback">
+                                        {% for error in form.address.errors %}
+                                          <span>{{ error }}</span>
+                                        {% endfor %}
+                                      </div>
+                            {% else %}
+                                  {{ form.address(class="form-control form-control-lg") }}
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-rose pull-right">Update Profile</button>
+
+
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card card-profile">
+                <div class="card-avatar">
+                  <a href="#pablo">
+                    <img class="img" src="../../static/assets/img/faces/marc.jpg" />
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-category text-gray">Cloud Drive User</h6>
+                  <h4 class="card-title">{{ current_user.fullname}}</h4>
+                  <p class="card-description"></p>
+                  <a href="#pablo" class="btn btn-rose btn-round"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+{% endblock %}
+
+

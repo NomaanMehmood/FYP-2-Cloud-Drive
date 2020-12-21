@@ -1,0 +1,43 @@
+{% extends "Client/baseTemplate.html" %}
+
+
+{% block newcontent %}
+    <div class="card-blog">
+       <h3> Share the Url below to access the shared file/folder:</h3>
+        <div class="card ">
+            <div class="card-header">
+                <h5 class="card-title"><b>Copy the Url to Share file/folder:</b></h5>
+            </div>
+            <div class="card-body">
+                {{ url }}
+            </div>
+        </div>
+
+        </div>
+    <br>
+    <button class="btn btn-info" data-toggle="modal" data-target="#shareUrl">
+         Share Link
+    </button>
+
+<!-- Modal Core -->
+<div class="modal fade" id="shareUrl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content modal-lg">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Share Link</h4>
+      </div>
+      <div class="modal-body">
+                {{ url }}
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

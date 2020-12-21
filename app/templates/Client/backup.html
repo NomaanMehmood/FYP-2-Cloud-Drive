@@ -1,0 +1,26 @@
+{% extends "Client/baseTemplate.html" %}
+
+{% block newcontent %}
+<div class="container">
+        <div>
+          <h3>Upload File & Folders:</h3>
+          <form method="POST" action="/upload" enctype=multipart/form-data>
+            <input class="btn btn-outline-success " type=file name=file>
+            <input type=submit class="btn btn-info" value=Upload>
+          </form>
+        </div>
+        </div>
+        {{ dropzone.load_css() }}
+          {{ dropzone.style('border: 2px dashed #0087F7; margin: 10%; min-height: 400px;') }}
+
+        {{ dropzone.create(method="POST", action="/upload") }}
+        {{ dropzone.load_js() }}
+        {{ dropzone.config()}}
+</div>
+
+
+
+
+{% endblock %}
+
+

@@ -1,0 +1,192 @@
+{% extends "Admin/adminBaseTemplate.html" %}
+
+{% block newcontent %}
+
+    <h2>Send Invoice</h2>
+    <div class="row">
+        <div class="card">
+            <div class="col-md-8">
+                <br>
+
+                <form action="{{ url_for('sendHtmlEmail') }}" method="POST">
+                    <h5>From:</h5>
+                    <div class="form-group">
+                        <b><label for="exampleFormControlInput1">clouddriveteam@gmail.com</label></b>
+                    </div>
+                    <h5>To:</h5>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Email Address</label>
+                        <br>
+                        <input type="email" name='email' class="form-control" id="exampleFormControlTextarea1"
+                               placeholder="name@example.com">
+                        <br>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Subject</label>
+                        <br>
+                        <input type="text" name='subject' class="form-control" id="exampleFormControlTextarea1"
+                               placeholder="Type Email Subject...">
+                        <br>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Message Box</label>
+                        <br>
+                        <textarea class="form-control" name="message" id="exampleFormControlTextarea1"
+                                  placeholder="Type Your Message..." rows="7"></textarea>
+                        <br>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="alert alert-ligh" role="alert">
+                            {{ success}}
+                        </div>
+
+                    </div>
+                </form>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="w-50 m-auto">
+        <!-- email template -->
+        <table class="body-wrap"
+               style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; width: 100%; background-color: #eaf0f7; margin: 0;"
+               bgcolor="#eaf0f7">
+            <tbody>
+            <tr>
+                <td valign="top"></td>
+                <td class="container" width="600"
+                    style="display: block !important; max-width: 600px !important; clear: both !important;"
+                    valign="top">
+                    <div class="content" style="padding: 50px 0">
+                        <table class="main" width="100%" cellpadding="0" cellspacing="0"
+                               style="border: 1px dashed #4d79f6;">
+                            <tbody>
+                            <tr>
+                                <td class="content-wrap aligncenter" style="padding: 20px; background-color: #fff;"
+                                    align="center" valign="top">
+                                    <table width="100%" cellpadding="0" cellspacing="0">
+                                        <tbody>
+                                        <tr>
+                                            <td style="padding-bottom: 20px; "><a href="#"><img
+                                                    src="https://www.onlinelogomaker.com/blog/wp-content/uploads/2017/08/Fotolia_128673803_Subscription_Monthly_M.jpg"
+                                                    alt="image"
+                                                    style="height: 30px; margin-left: auto; margin-right: auto; display:block;"></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="content-block" style="padding: 0 0 20px;" valign="top">
+                                                <h2 class="aligncenter"
+                                                    style="font-family: 'Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size: 24px; color:black; line-height: 1.2em; font-weight: 600; text-align: center;"
+                                                    align="center">Thanks for using <span
+                                                        style="color: #004deb; font-weight: 700;">Cloud Drive</span>.
+                                                </h2>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="content-block aligncenter" style="padding: 0 0 20px;"
+                                                align="center" valign="top">
+                                                <table class="invoice" style="width: 80%;">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px; padding: 5px 0;"
+                                                            valign="top">Records<br>Invoice #12345<br>01 Sep
+                                                            2018
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding: 5px 0;" valign="top">
+                                                            <table class="invoice-items" cellpadding="0" cellspacing="0"
+                                                                   style="width: 100%;">
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px; vertical-align: top; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 10px 0;"
+                                                                        valign="top">Premium Package
+                                                                    </td>
+                                                                    <td class="alignright"
+                                                                        style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 10px 0;"
+                                                                        align="right" valign="top">$ 20.99
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px; vertical-align: top; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 10px 0;"
+                                                                        valign="top">Tax
+                                                                    </td>
+                                                                    <td class="alignright"
+                                                                        style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 10px 0;"
+                                                                        align="right" valign="top">$ 2.00
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px; vertical-align: top; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 10px 0;"
+                                                                        valign="top">Extras
+                                                                    </td>
+                                                                    <td class="alignright"
+                                                                        style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 10px 0;"
+                                                                        align="right" valign="top">$ 0.00
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="alignright" width="80%"
+                                                                        style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 2px; border-top-color: #50649c; border-top-style: solid; border-bottom-color: #50649c; border-bottom-width: 2px; border-bottom-style: solid; font-weight: 700; margin: 0; padding: 10px 0;"
+                                                                        align="right" valign="top">Total
+                                                                    </td>
+                                                                    <td class="alignright"
+                                                                        style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 2px; border-top-color: #50649c; border-top-style: solid; border-bottom-color: #50649c; border-bottom-width: 2px; border-bottom-style: solid; font-weight: 700; margin: 0; padding: 10px 0;"
+                                                                        align="right" valign="top">$ 42.00
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="content-block aligncenter"
+                                                style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px; vertical-align: top; text-align: center; margin: 0; padding: 0 0 20px;"
+                                                align="center" valign="top"><a href="/"
+                                                                               style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px; color: #4d79f6; text-decoration: underline; margin: 0;">View
+                                                in browser</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="content-block aligncenter"
+                                                style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px; vertical-align: top; text-align: center; margin: 0; padding: 0 0 20px;"
+                                                align="center" valign="top"> Team Cloud Drive
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="content-block aligncenter"
+                                                style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px; vertical-align: top; text-align: center; margin: 0; padding: 0 0 20px;"
+                                                align="center" valign="top">Comsats University, Islamabad
+
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <!--end table-->
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <!-- ./ email template -->
+    </div>
+
+
+
+
+{% endblock %}
+
+
