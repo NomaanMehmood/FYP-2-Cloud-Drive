@@ -1,0 +1,46 @@
+{% extends "Client/baseTemplate.html" %}
+
+
+{% block newcontent %}
+ <div class="row">
+        <div class="col-md-12 mt-4">
+            <div class="card">
+                <div class="card-header card-header-icon card-header-rose">
+                    <div class="card-icon"><i class="material-icons">assignment</i></div>
+                    <h4 class="card-title">Cloud Drive Available Packages</h4></div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="text-primary">
+                            <tr>
+                                <th>Package Name</th>
+                                <th>Duration</th>
+                                <th>Pricing</th>
+                                <th>Storage Capacity</th>
+                                <th>Action</th>
+
+                            </tr>
+                            </thead>
+                            {% for pkg in package %}
+                            <tbody>
+                            <tr>
+                                <td>{{ pkg.package_name}}</td>
+                                <td>{{ pkg.duration}}</td>
+                                <td>{{ pkg.price }}</td>
+                                <td>{{ pkg.storage_capacity}}</td>
+                                <td><a href="/subscribe"class="btn btn-primary btn-round">Subcribe</a></td>
+
+                            </tr>
+
+                            </tbody>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
